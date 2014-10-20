@@ -11,11 +11,11 @@ __END__
 @@ layout
 <html>
 <head>
-  <script src="http://www.google.com/jsapi"></script>
-  <script src="chartkick.js"></script>
   <script>
   var Chartkick = {"language": "es"};
   </script>
+  <script src="http://www.google.com/jsapi"></script>
+  <script src="chartkick.js"></script>
 </head>
 <body>
   <%= yield %>
