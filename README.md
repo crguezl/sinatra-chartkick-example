@@ -72,31 +72,6 @@ or
 <%= line_chart Feat.group(:goal_id).group_by_week(:created_at).count %>
 ```
 
-### Say Goodbye To Timeouts
-
-Make your pages load super fast and stop worrying about timeouts.  Give each chart its own endpoint.
-
-```erb
-<%= line_chart completed_tasks_charts_path %>
-```
-
-And in your controller, pass the data as JSON.
-
-```ruby
-class ChartsController < ApplicationController
-  def completed_tasks
-    render json: Task.group_by_day(:completed_at).count
-  end
-end
-```
-
-**Note:** This feature requires [jQuery](http://jquery.com/) or [Zepto](http://zeptojs.com/) at the moment.
-
-For multiple series, add `chart_json` at the end.
-
-```ruby
-render json: Task.group(:goal_id).group_by_day(:completed_at).count.chart_json
-```
 
 ### Options
 
@@ -218,20 +193,6 @@ If you prefer Highcharts, use:
 <%= javascript_include_tag "path/to/highcharts.js", "chartkick" %>
 ```
 
-### For Rails 3.1+
-
-`chartkick.js` runs as a Rails engine - no need to install it.
-
-### For Rails 2.3 and 3.0
-
-You must include `chartkick.js` manually.  [Download it here](https://raw.github.com/ankane/chartkick/master/app/assets/javascripts/chartkick.js)
-
-For Rails 2.3, you must use a script tag for Google Charts due to [this bug](https://rails.lighthouseapp.com/projects/8994/tickets/1664-javascript_include_tag-shouldnt-append-a-js-onto-external-urls).
-
-```html
-<script src="//www.google.com/jsapi"></script>
-```
-
 ### For Sinatra
 
 You must include `chartkick.js` manually.  [Download it here](https://raw.github.com/ankane/chartkick/master/app/assets/javascripts/chartkick.js)
@@ -239,16 +200,6 @@ You must include `chartkick.js` manually.  [Download it here](https://raw.github
 ```html
 <script src="//www.google.com/jsapi"></script>
 <script src="chartkick.js"></script>
-```
-
-### For Padrino
-
-You must include `chartkick.js` manually.  [Download it here](https://raw.github.com/ankane/chartkick/master/app/assets/javascripts/chartkick.js)
-
-In addition, you must specify `http` or `https` if you use Google Charts, since Padrino tries to append `.js` to protocol relative urls.
-
-```erb
-<%= javascript_include_tag "https://www.google.com/jsapi", "chartkick" %>
 ```
 
 ### Localization
