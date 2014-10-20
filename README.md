@@ -4,7 +4,7 @@ Create beautiful Javascript charts with one line of Ruby. No more fighting with 
 
 [See it in action](http://ankane.github.io/chartkick/)
 
-Works with Rails, Sinatra and most browsers (including IE 6)
+Works with Sinatra and most browsers (including IE 6)
 
 ## Charts
 
@@ -175,19 +175,7 @@ Add this line to your application's Gemfile:
 gem "chartkick"
 ```
 
-And add the javascript files to your views.  These files must be included **before** the helper methods, unless using the `:content_for` option.
-
-For Google Charts, use:
-
-```erb
-<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
-```
-
-If you prefer Highcharts, use:
-
-```erb
-<%= javascript_include_tag "path/to/highcharts.js", "chartkick" %>
-```
+And add the javascript files to your views. 
 
 ### For Sinatra
 
